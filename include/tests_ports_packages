@@ -166,11 +166,14 @@
     # Description : Query macOS Apps in /Applications
     Register --test-no PKGS-7305 --os macOS --weight L --network NO --category security --description "Query macOS Apps in /Applications"
     if [ ${SKIPTEST} -eq 0 ]; then
+        LogText "Test: Querying Apps in /Applications"
         Display --indent 4 --text "- Querying Apps in /Applications for installed packages"
+        LogText "Output:"; LogText "-----"
         for APP in /Applications/*.app; do
             PACKAGE_NAME=$(basename "$APP" .app)
             PACKAGE_VERSION=$(defaults read "$APP/Contents/Info" CFBundleShortVersionString 2>/dev/null || echo "N/A")
-            INSTALLED_PACKAGES="$INSTALLED_PACKAGES|$PACKAGE_NAME,$PACKAGE_VERSION"
+            LogText "Found package: ${PACKAGE_NAME} (version: ${PACKAGE_VERSION})"
+            INSTALLED_PACKAGES="${INSTALLED_PACKAGES}|${PACKAGE_NAME},${PACKAGE_VERSION}"
         done
     fi
 #
