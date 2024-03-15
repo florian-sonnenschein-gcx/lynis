@@ -1,6 +1,14 @@
 # Lynis Changelog
 
-## Lynis 3.1.0 (not released yet)
+## Lynis 3.1.1 (not released yet)
+
+### Changed
+- DBS-1882 - Redis configuration file path added for FreeBSD (/usr/local/etc/redis.conf)
+- DBS-1882 - Check /snap directory location for Redis configuration file
+
+---------------------------------------------------------------------------------
+
+## Lynis 3.1.0 (2024-03-11)
 
 ### Added
 - Translation: Indonesian
@@ -12,6 +20,7 @@
 - STATUS_NOT_ACTIVE variable added to translation files
 - End-of-life dates updated
 - Fixing missing or erroneous test number comments
+- Detection of SentinelOne corrected
 - Wazuh for file integrity and tooling
 - Updated parsing output of arch-audit
 - Added support for SentinelOne detection
